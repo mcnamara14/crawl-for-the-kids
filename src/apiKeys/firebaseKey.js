@@ -1,0 +1,1 @@
+export const firebaseKey = "AIzaSyCQvWliUOZUPYID53vQfmwLOD4v6YS3ZT4"
