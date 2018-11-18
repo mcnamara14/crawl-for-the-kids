@@ -2,26 +2,20 @@ import React, { Component } from 'react'
 import logo from './logo.png'
 import './Login.css'
 import { connect } from 'react-redux'
-import { addCurrentBar, addAllBars, storeUserId, storeUserName } from '../../actions'
+import { storeCurrentBar, addAllBars, storeUserId, storeUserName } from '../../actions'
 import * as authorization from '../../firebase/auth'
+import { withRouter } from 'react-router-dom'
 
-class App extends Component {
+class Login extends Component {
   constructor(props) {
     super()
 
     this.state = {
-      city: '',
-      state: '',
       emailInput: '',
       nameInput: '',
+      userId: '',
       password: ''
     }
-  }
-
-  componentDidMount() {
-    const bars = ['Three Kings', 'The Pub', 'Scruffy Murphys']
-
-    this.props.storeBars(bars)
   }
 
   onChangeHandler = event => {
@@ -34,21 +28,36 @@ class App extends Component {
 
   emailSubmitHandler = async event => {
     event.preventDefault()
-    const { emailInput, password, nameInput } = this.state
+    const { emailInput, password } = this.state
 
     const result = await authorization.emailPasswordSignup(emailInput, password)
-
     const { uid } = result.user
 
-    this.props.storeUserId(uid)
-    this.props.storeUserName(nameInput)
+    this.setState({ userId: uid })
+    this.storeUserRedirect()
   }
 
-  googleSignup = async () => {
-    const result = await authorization.googleSignup()
-    const { uid, email } = result.user
-    console.log(uid, email)
-    // this.props.loginUser(uid, email, this.state.city, this.state.state)
+  googleSignup = async event => {
+    event.preventDefault()
+    console.log('google')
+    if (this.nameError() === null) {
+      const result = await authorization.googleSignup()
+      const { uid } = result.user
+      this.setState({ userId: uid })
+    }
+    this.storeUserRedirect()
+  }
+
+  storeUserRedirect = () => {
+    const { userId, nameInput } = this.state
+
+    this.props.storeUserId(userId)
+    this.props.storeUserName(nameInput)
+    this.props.history.push('/bar')
+  }
+
+  nameError = () => {
+    return !this.state.nameInput ? alert('You must enter a name') : null
   }
 
   render() {
@@ -56,32 +65,22 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <form className="emailSignup" onClick={this.emailSubmitHandler}>
-            <input
-              name="nameInput"
-              value={this.state.nameInput}
-              onChange={this.onChangeHandler}
-              placeholder="tyler mcnamara"
-            />
+          <form className="emailSignup" onSubmit={this.emailSubmitHandler}>
+            <input name="nameInput" value={this.state.nameInput} onChange={this.onChangeHandler} placeholder="Name" />
             <input
               name="emailInput"
               value={this.state.emailInput}
               onChange={this.onChangeHandler}
-              placeholder="ex. tyler@kidscrawl.com"
+              placeholder="Email Address"
             />
             {this.props.passwordError ? (
               <p className="passwordErrorPopup errorPopup">Wrong password, try again.</p>
             ) : null}
-            <input
-              name="password"
-              value={this.state.password}
-              onChange={this.onChangeHandler}
-              placeholder="Enter a password"
-            />
-            <button onClick={this.emailSubmitHandler} className="signinButton">
-              Sign In
-            </button>
-            <button onClick={this.googleSignup} className="googleButton">
+            <input name="password" value={this.state.password} onChange={this.onChangeHandler} placeholder="Password" />
+            <button className="signinButton">Sign In</button>
+          </form>
+          <form onSubmit={this.googleSignup}>
+            <button className="googleButton">
               Google Signup
             </button>
           </form>
@@ -94,7 +93,7 @@ class App extends Component {
 const mapDispatchToProps = dispatch => {
   return {
     handleSubmit: name => {
-      dispatch(addCurrentBar(name))
+      dispatch(storeCurrentBar(name))
     },
     storeBars: bars => {
       dispatch(addAllBars(bars))
@@ -109,10 +108,12 @@ const mapDispatchToProps = dispatch => {
 }
 
 const mapStateToProps = state => {
-  return { currentLocation: state.currentLocation }
+  return { currentBar: state.currentBar }
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App)
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Login)
+)

@@ -1,0 +1,64 @@
+h1 {
+  font-family: 'Varela Round', sans-serif;
+  margin-top: -5px;
+  margin-bottom: 5px;
+  font-size: 33px;
+  font-weight: bold;
+}
+
+h2 {
+  color: #746868;
+  font-size: 1.3em;
+  margin-top: 0;
+}
+
+h4 {
+  color: #df8850;
+  font-weight: bold;
+  padding-top: 30px;
+  margin-bottom: 10px;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+.barContentContainer {
+  background: #faf7f6;
+  height: 100vh;
+  margin-top: -34px;
+  text-align: center;
+}
+
+.barNum {
+  background: #1b95af;
+  width: 20px;
+  color: #fff;
+  border-radius: 3px;
+  padding: 0px 3px 3px 3px;
+  font-weight: bold;
+  font-size: 13px;
+  font-family: 'Noto Sans TC', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5px;
+}
+
+.barSubtitle p {
+  color: #746868;
+  font-weight: bold;
+  font-family: 'Varela Round', sans-serif;
+}
+
+.barSubtitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.goBack {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 0.85em;
+}
+
+.goBack a {
+  color: #1b95af;
+}

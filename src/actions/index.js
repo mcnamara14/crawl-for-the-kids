@@ -5,9 +5,9 @@ export const addAllBars = bars => {
     }
   }
 
-export const addCurrentBar = bar => {
+export const storeCurrentBar = bar => {
   return {
-    type: 'ADD_CURRENT_BAR',
+    type: 'STORE_CURRENT_BAR',
     bar
   }
 }
@@ -23,5 +23,11 @@ export const storeUserId = userId => {
   return {
     type: 'STORE_USER_ID',
     userId
+  }
+}
+
+export const updateCounter = () => {
+  return {
+    type: 'UPDATE_COUNTER',
   }
 }

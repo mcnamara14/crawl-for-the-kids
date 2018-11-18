@@ -1,14 +1,16 @@
 import { combineReducers } from 'redux'
-import currentLocation from './currentLocationReducer'
+import currentBar from './currentBar'
 import allBars from './allBars'
 import userId from './storeUserId'
 import userName from './storeUserName'
+import counter from './counter'
 
 const rootReducer = combineReducers({
-    currentLocation,
+    currentBar,
     allBars,
     userId,
-    userName
+    userName,
+    counter
 })
 
 export default rootReducer
