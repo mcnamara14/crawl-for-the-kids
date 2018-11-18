@@ -17,14 +17,18 @@ class Home extends Component {
         barNum: 1,
         barSubtitle: 'Drummers Drumming',
         special: '$5 Whiskey Shot & a Coors Light',
-        time: '1:00PM - 1:30PM'
+        time: '1:00PM - 1:30PM',
+        googleName: 'three+kings',
+        checkedIn: false
       },
       {
         name: 'The Pub',
         barNum: 2,
         barSubtitle: 'Birds a Squacking',
         special: '$3 Jamo Shot',
-        time: '1:30PM - 2:00PM'
+        time: '1:30PM - 2:00PM',
+        googleName: 'coors+field',
+        checkedIn: false
       }
     ]
 

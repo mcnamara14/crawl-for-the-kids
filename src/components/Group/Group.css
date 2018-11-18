@@ -1,0 +1,77 @@
+h1 {
+  font-family: 'Varela Round', sans-serif;
+  margin-top: 0;
+  font-size: 24px;
+}
+
+h3 {
+  font-family: 'Noto Sans TC', sans-serif;
+  color: #1b95af;
+  margin-bottom: 5px;
+}
+
+.title {
+  text-align: center;
+  margin-top: 0;
+}
+
+.groupContainer {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.columnsHeader {
+  width: 82%;
+  margin: 0 auto;
+  padding: 5px 15px;
+  display: flex;
+  color: #222;
+  justify-content: space-between;
+}
+
+.columnsHeader p {
+  display: inline-block;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  font-weight: bold;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+.columnName, .columnBar {
+  width: 45%;
+}
+
+.columnCount {
+  width: 10%;
+}
+
+.crawler {
+  padding: 0px 15px;
+  border-bottom: 1px solid #ccc;
+  margin: 10px 0 0px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.crawler p {
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  color: #666;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: bold;
+}
+
+.crawlerName, .crawlerBar {
+  width: 45%;
+}
+
+.crawlerName {
+  color: #df8850 !important;
+}
+
+.crawlerCount {
+  width: 10%;
+  color: #000 !important;
+}

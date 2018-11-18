@@ -13,12 +13,12 @@ class Bar extends Component {
   }
 
   render() {
-    // let firebaseLocation
-    // const firebaseRef = firebase.database().ref()
+    let firebaseLocation
+    const firebaseRef = firebase.database().ref()
 
-    // firebaseLocation = firebaseRef.child('users').child(this.props.userId)
+    firebaseLocation = firebaseRef.child('users').child(this.props.userId)
 
-    // firebaseLocation.update({ name: this.props.userName, count: 0 })
+    firebaseLocation.update({ name: this.props.userName, count: 0, currentBar: null })
 
     return (
       <div className="barContainer">

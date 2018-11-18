@@ -31,3 +31,10 @@ export const updateCounter = () => {
     type: 'UPDATE_COUNTER',
   }
 }
+
+export const checkIn = barNum => {
+  return {
+    type: 'CHECKIN_BAR',
+    barNum
+  }
+}
