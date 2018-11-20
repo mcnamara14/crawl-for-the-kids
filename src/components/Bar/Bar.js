@@ -18,7 +18,7 @@ class Bar extends Component {
 
     firebaseLocation = firebaseRef.child('users').child(this.props.userId)
 
-    firebaseLocation.update({ name: this.props.userName, count: 0, currentBar: null })
+    firebaseLocation.update({ name: this.props.userName})
 
     return (
       <div className="barContainer">

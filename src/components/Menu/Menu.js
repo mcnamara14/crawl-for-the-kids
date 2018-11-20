@@ -1,16 +1,28 @@
-import React, { Component} from 'react'
+import React, { Component } from 'react'
 import { slide as Menu } from 'react-burger-menu'
 import './Menu.css'
- 
-export default class MobileMenu extends Component {
+import { withRouter } from 'react-router-dom'
 
-  render () {
+class MobileMenu extends Component {
+  updatePage = route => {
+    this.props.history.push(route)
+  }
+
+  render() {
     return (
       <Menu>
-        <a id="home" className="menu-item" href="/">Home ›</a>
-        <a id="about" className="menu-item" href="/group">Group ›</a>
-        <a id="contact" className="menu-item" href="/contact">Contact ›</a>
+        <a id="home" className="menu-item" onClick={() => this.updatePage('/')}>
+          Home ›
+        </a>
+        <a id="about" className="menu-item" onClick={() => this.updatePage('/group')}>
+          Group ›
+        </a>
+        <a id="contact" className="menu-item" onClick={() => this.updatePage('/bar')}>
+          Current Bar ›
+        </a>
       </Menu>
-    );
+    )
   }
 }
+
+export default withRouter(MobileMenu)
