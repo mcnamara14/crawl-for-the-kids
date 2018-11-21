@@ -42,7 +42,7 @@ h4 span {
 
 .barContentContainer {
   background: #faf7f6;
-  height: 100vh;
+  height: 100%;
   margin-top: -34px;
   text-align: center;
 }

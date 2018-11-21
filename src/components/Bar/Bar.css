@@ -19,6 +19,8 @@
 .bm-cross-button {
   height: 24px;
   width: 24px;
+  right: 20px;
+  top: 25px;
 }
  
 /* Color/shape of close button cross */
@@ -52,9 +54,4 @@
 /* Styling of overlay */
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
-  margin-top: -20px;
-}
-
-.bm-menu-wrap {
-  margin-top: -20px;
 }

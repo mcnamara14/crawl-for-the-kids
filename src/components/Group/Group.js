@@ -36,14 +36,14 @@ class Group extends Component {
     return (
       <div>
         <Header />
-        <div className="title">
+        <div className="groupTitle">
           <h3>Crawler</h3>
           <h1>Leaderboard</h1>
         </div>
         <div className="columnsHeader">
           <p className="columnName">Name</p>
           <p className="columnBar">Bar</p>
-          <p className="columnCount">Count</p>
+          <p className="columnCount">Challenges</p>
         </div>
         <div className="groupContainer">
           {this.state.crawlers.map(crawler => {

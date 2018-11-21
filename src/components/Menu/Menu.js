@@ -11,9 +11,6 @@ class MobileMenu extends Component {
   render() {
     return (
       <Menu>
-        <a id="home" className="menu-item" onClick={() => this.updatePage('/')}>
-          Home ›
-        </a>
         <a id="about" className="menu-item" onClick={() => this.updatePage('/group')}>
           Group ›
         </a>

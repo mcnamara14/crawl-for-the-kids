@@ -10,9 +10,9 @@ h3 {
   margin-bottom: 5px;
 }
 
-.title {
+.groupTitle {
   text-align: center;
-  margin-top: 0;
+  margin-top: 100px;
 }
 
 .groupContainer {
@@ -26,7 +26,7 @@ h3 {
   padding: 5px 15px;
   display: flex;
   color: #222;
-  padding: 30px 5px 15px;
+  padding: 15px 5px 15px;
   justify-content: space-between;
 }
 
@@ -39,12 +39,16 @@ h3 {
   font-family: 'Noto Sans TC', sans-serif;
 }
 
-.columnName, .columnBar {
+.columnName {
+  width: 55%;
+}
+
+.columnBar {
   width: 45%;
 }
 
 .columnCount {
-  width: 10%;
+  width: 20%;
 }
 
 .crawler {

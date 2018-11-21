@@ -20,9 +20,9 @@ h3 {
 .headerContainer {
   height: 73px;
   position: fixed;
+  top: 0;
   display: block;
   background: #fff;
-  z-index: 1;
   width: 100%;
 }
 
