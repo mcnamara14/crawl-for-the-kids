@@ -7,8 +7,11 @@ body {
   font-family: 'Varela Round', sans-serif;
   margin-top: 0;
   font-size: 24px;
-  padding-top: 50px;
   margin-bottom: 10px;
+}
+
+.barContentContainer h4 {
+  margin-top: 110px;
 }
 
 h3 {
