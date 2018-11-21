@@ -28,25 +28,26 @@ class Login extends Component {
 
   emailSubmitHandler = async event => {
     event.preventDefault()
-    const { emailInput, password } = this.state
+    const { nameInput, password } = this.state
+    const email = nameInput + '@gmail.com'
 
-    const result = await authorization.emailPasswordSignup(emailInput, password)
+    const result = await authorization.emailPasswordSignup(email, password)
     const { uid } = result.user
 
     this.setState({ userId: uid })
     this.storeUserRedirect()
   }
 
-  googleSignup = async event => {
-    event.preventDefault()
-    console.log('google')
-    if (this.nameError() === null) {
-      const result = await authorization.googleSignup()
-      const { uid } = result.user
-      this.setState({ userId: uid })
-    }
-    this.storeUserRedirect()
-  }
+  // googleSignup = async event => {
+  //   event.preventDefault()
+  //   console.log('google')
+  //   if (this.nameError() === null) {
+  //     const result = await authorization.googleSignup()
+  //     const { uid } = result.user
+  //     this.setState({ userId: uid })
+  //   }
+  //   this.storeUserRedirect()
+  // }
 
   storeUserRedirect = () => {
     const { userId, nameInput } = this.state
@@ -67,23 +68,17 @@ class Login extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <form className="emailSignup" onSubmit={this.emailSubmitHandler}>
             <input name="nameInput" value={this.state.nameInput} onChange={this.onChangeHandler} placeholder="Name" />
-            <input
-              name="emailInput"
-              value={this.state.emailInput}
-              onChange={this.onChangeHandler}
-              placeholder="Email Address"
-            />
             {this.props.passwordError ? (
               <p className="passwordErrorPopup errorPopup">Wrong password, try again.</p>
             ) : null}
             <input name="password" value={this.state.password} onChange={this.onChangeHandler} placeholder="Password" />
             <button className="signinButton">Sign In</button>
           </form>
-          <form onSubmit={this.googleSignup}>
+          {/* <form onSubmit={this.googleSignup}>
             <button className="googleButton">
               Google Signup
             </button>
-          </form>
+          </form> */}
         </header>
       </div>
     )

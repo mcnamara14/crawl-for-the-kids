@@ -7,12 +7,22 @@ h1 {
   font-family: 'Varela Round', sans-serif;
   margin-top: 0;
   font-size: 24px;
+  padding-top: 50px;
 }
 
 h3 {
   font-family: 'Noto Sans TC', sans-serif;
   color: #1b95af;
   margin-bottom: 5px;
+}
+
+.headerContainer {
+  height: 73px;
+  position: fixed;
+  display: block;
+  background: #fff;
+  z-index: 1;
+  width: 100%;
 }
 
 .homeHeader {

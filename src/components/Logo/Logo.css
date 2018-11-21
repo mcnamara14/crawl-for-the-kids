@@ -1,5 +1,6 @@
 .logo {
   width: 55%;
   display: block;
-  margin: 0 auto;
+  position: fixed;
+  left: 25%;
 }

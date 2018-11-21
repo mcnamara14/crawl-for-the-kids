@@ -8,6 +8,7 @@ import PreCheckin from './pre-checkin.png'
 import PostCheckin from './post-checkin.png'
 import * as firebase from 'firebase'
 import { updateCounter, checkIn } from '../../actions'
+import NavIcon from './nav-icon.png'
 
 class BarContent extends Component {
   changeToNextBar = () => {
@@ -81,7 +82,7 @@ class BarContent extends Component {
                 className="directionsButton"
                 href={`https://www.google.com/maps/dir/?api=1&origin=${googleName}+Denver+CO&destination=${nextBarGoogleName}+Denver+CO&travelmode=walking`}
                 target="_blank">
-                DIRECTIONS
+                <img src={NavIcon} className="navigationIcon" />DIRECTIONS
               </a>
             </div>
           </div>

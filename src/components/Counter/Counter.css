@@ -1,5 +1,5 @@
 .counterContainer {
-  position: absolute;
+  position: fixed;
   top: 4px;
   left: 8px;
   padding: 3px 0;

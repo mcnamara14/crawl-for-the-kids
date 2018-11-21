@@ -47,7 +47,7 @@ class Home extends Component {
           <Logo />
           <img src={BarCheck} className="barCheck" />
         </div>
-        <div className="title">
+        <div className="homeTitle">
           <h3>3rd Annual</h3>
           <h1>Crawl for the Kids</h1>
         </div>

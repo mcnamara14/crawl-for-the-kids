@@ -21,8 +21,13 @@ h4 {
 }
 
 h4 span {
-  color : #000;
+  color: #000;
   text-transform: uppercase;
+}
+
+.navigationIcon {
+  width: 35px;
+  margin-right: 5px;
 }
 
 .specials {
@@ -78,12 +83,19 @@ h4 span {
 }
 
 .directionsButton {
-  color: #fff;
-  background: #aaa;
+  color: #555;
+  display: flex;
+  height: 29px;
+  background: #fff;
   margin-top: 15px;
+  border: 1px solid #f3833a;
   text-decoration: none;
   padding: 8px 14px;
+  font-family: 'Noto Sans TC', sans-serif;
   border-radius: 5px;
+  font-size: 0.9em;
+  align-items: center;
+  letter-spacing: 1px;
 }
 
 .checkinButton {
@@ -103,7 +115,7 @@ h4 span {
 
 .nextBarButtons button {
   padding: 14px 6px;
-  background: #df8850;
+  background: #f3833a;
   margin-top: 20px;
   color: #fff;
   text-decoration: none;
