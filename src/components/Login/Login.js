@@ -5,6 +5,8 @@ import { connect } from 'react-redux'
 import { storeCurrentBar, addAllBars, storeUserId, storeUserName } from '../../actions'
 import * as authorization from '../../firebase/auth'
 import { withRouter } from 'react-router-dom'
+import * as firebase from 'firebase'
+import 'firebase/database'
 
 class Login extends Component {
   constructor(props) {
@@ -32,25 +34,22 @@ class Login extends Component {
     const email = nameInput + '@gmail.com'
 
     const result = await authorization.emailPasswordSignup(email, password)
-    const { uid } = result.user
+    const { uid } = result.user 
 
     this.setState({ userId: uid })
-    this.storeUserRedirect()
+    this.storeUserRedirect(uid)
   }
-
-  // googleSignup = async event => {
-  //   event.preventDefault()
-  //   console.log('google')
-  //   if (this.nameError() === null) {
-  //     const result = await authorization.googleSignup()
-  //     const { uid } = result.user
-  //     this.setState({ userId: uid })
-  //   }
-  //   this.storeUserRedirect()
-  // }
-
-  storeUserRedirect = () => {
+  storeUserRedirect = (uid) => {
     const { userId, nameInput } = this.state
+    const objectToStore = { userId: uid, name: nameInput };
+    const stringifiedObject = JSON.stringify(objectToStore);
+    localStorage.setItem('user', stringifiedObject);
+
+    let firebaseLocation
+    const firebaseRef = firebase.database().ref()
+    
+    firebaseLocation = firebaseRef.child('users').child(userId)
+    firebaseLocation.update({ name: nameInput })
 
     this.props.storeUserId(userId)
     this.props.storeUserName(nameInput)
@@ -74,11 +73,6 @@ class Login extends Component {
             <input name="password" value={this.state.password} onChange={this.onChangeHandler} placeholder="Password" />
             <button className="signinButton">Sign In</button>
           </form>
-          {/* <form onSubmit={this.googleSignup}>
-            <button className="googleButton">
-              Google Signup
-            </button>
-          </form> */}
         </header>
       </div>
     )

@@ -3,11 +3,12 @@ body {
   margin: 0;
 }
 
-h1 {
+.barContentContainer h1 {
   font-family: 'Varela Round', sans-serif;
   margin-top: 0;
   font-size: 24px;
   padding-top: 50px;
+  margin-bottom: 10px;
 }
 
 h3 {

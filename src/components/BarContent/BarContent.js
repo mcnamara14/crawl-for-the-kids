@@ -32,9 +32,10 @@ class BarContent extends Component {
   addCountToFirebase = () => {
     let firebaseLocation
     const firebaseRef = firebase.database().ref()
-
-    firebaseLocation = firebaseRef.child('users').child(this.props.userId)
-
+    const retrievedObject = localStorage.getItem('user')
+    const parsedObject = JSON.parse(retrievedObject)
+    
+    firebaseLocation = firebaseRef.child('users').child(parsedObject.userId)
     firebaseLocation.update({ count: this.props.counter, currentBar: this.props.currentBar.name })
   }
 

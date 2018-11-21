@@ -1,3 +1,7 @@
+p {
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
 h1 {
   font-family: 'Varela Round', sans-serif;
   margin-top: -5px;
@@ -111,6 +115,7 @@ h4 span {
   align-items: center;
   font-size: 1em;
   flex-direction: column;
+  padding-bottom: 30px;
 }
 
 .nextBarButtons button {
