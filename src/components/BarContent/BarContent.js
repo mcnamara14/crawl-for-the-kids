@@ -56,7 +56,7 @@ class BarContent extends Component {
 
     return (
       <div className="barContentContainer">
-        <h4>{finalBar ? 'YOU MADE IT!' : 'CURRENT STOP:'}</h4>
+        <h4 className="stopTitle">{finalBar ? 'YOU MADE IT!' : 'CURRENT STOP:'}</h4>
         <h1>{name}</h1>
         <div className="barSubtitle">
           <div className="barNum">{barNum}</div>
