@@ -15,18 +15,21 @@ h3 {
   margin-bottom: 5px;
 }
 
-.homeHeader {
-  height: 310px;
+.homeContainer {
+  background: url('./homeBg.jpg');
+  background-repeat: repeat;
   background-size: cover;
-  background-position: center;
-  position: relative;
+  height: 100vh;
+  width: auto;
 }
 
-.barCheck {
-  width: 64px;
-  position: absolute;
-  bottom: -32px;
-  left: calc(50% - 32px);
+.homeLogo {
+  height: 350px;
+  margin: 60px 0;
+}
+
+.signupButton {
+  margin-top: 40px;
 }
 
 .homeTitle {
@@ -34,51 +37,12 @@ h3 {
   margin-top: 40px;
 }
 
-.getStartedBtn img {
-  width: 35px;
-  width: 35px;
-  margin-right: -32px;
-  padding: 3px 41px 3px 3px;
-}
-
-.getStartedBtn {
-  border: 2px solid #746868;
-  background: #fff;
-  font-family: 'Noto Sans TC', sans-serif;
-  border-radius: 5px;
-  padding: 5px 13px;
-  text-transform: uppercase;
-  margin: 0 auto;
-  font-size: 18px;
-  color: #746868;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  margin-top: 30px;
-}
-
-.homeBottom {
-  margin-top: -28px;
-  z-index: -1;
-  padding-top: 40px;
-  position: relative;
-  height: 300px;
-  background-size: contain;
-}
-
-.homeBottom h3 {
-  color: #000;
+.homeContainer button {
   font-size: 16px;
-  text-align: center;
-  margin-bottom: 10px;
 }
 
-.homeBottom p {
-  color: #746868;
-  font-size: 13px;
-  text-align: center;
-  font-family: 'Noto Sans TC', sans-serif;
-  font-weight: bold;
-  padding: 0px 40px;
-  margin-top: 0px;
+.homeButtonContainer {
+  height: 100px;
+  justify-content: space-between;
+  flex-direction: column;
 }

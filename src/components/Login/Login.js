@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import logo from './logo.png'
+import Grid from '@material-ui/core/Grid'
+import Logo from '../Home/crawl-logo.png'
+import Button from '@material-ui/core/Button'
 import './Login.css'
 import { connect } from 'react-redux'
 import { storeCurrentBar, addAllBars, storeUserId, storeUserName } from '../../actions'
@@ -29,7 +31,6 @@ class Login extends Component {
   }
 
   emailSubmitHandler = async event => {
-    event.preventDefault()
     const { nameInput, password } = this.state
     const email = nameInput + '@gmail.com'
 
@@ -62,19 +63,21 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <form className="emailSignup" onSubmit={this.emailSubmitHandler}>
+      <Grid container className="homeContainer" justify="center">
+      <Grid item xs={8}>
+        <img src={Logo} className="homeLogo" />
+        <Grid container className="homeButtonContainer">
+        <form className="emailSignup" onSubmit={this.emailSubmitHandler}>
             <input name="nameInput" value={this.state.nameInput} onChange={this.onChangeHandler} placeholder="Name" />
             {this.props.passwordError ? (
               <p className="passwordErrorPopup errorPopup">Wrong password, try again.</p>
             ) : null}
             <input name="password" value={this.state.password} onChange={this.onChangeHandler} placeholder="Password" />
-            <button className="signinButton">Sign In</button>
+            <Button variant="contained" color="primary" className="signinButton" onClick={() => this.emailSubmitHandler()}>Sign In</Button>
           </form>
-        </header>
-      </div>
+        </Grid>
+      </Grid>
+    </Grid>
     )
   }
 }
