@@ -21,6 +21,7 @@ h3 {
   background-size: cover;
   height: 100vh;
   width: auto;
+  overflow: hidden;
 }
 
 .homeLogo {
