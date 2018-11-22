@@ -10,10 +10,6 @@ body {
   margin-bottom: 10px;
 }
 
-.stopTitle {
-  margin-top: 110px;
-}
-
 h3 {
   font-family: 'Noto Sans TC', sans-serif;
   color: #1b95af;
@@ -21,11 +17,9 @@ h3 {
 }
 
 .headerContainer {
-  height: 73px;
-  position: fixed;
-  top: 0;
+  height: 60px;
   display: block;
-  background: #fff;
+  background: #ff6d1d;
   width: 100%;
 }
 

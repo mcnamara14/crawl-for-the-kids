@@ -11,7 +11,6 @@ class Header extends Component {
     return (
     <div className="headerContainer">
           <Menu right/>
-          <Logo />
           <Counter />
     </div>
     )
