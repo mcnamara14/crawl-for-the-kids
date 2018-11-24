@@ -1,12 +1,13 @@
 const currentBar = (
   state = {
-    name: 'Three Kings',
+    name: 'Three Lions',
     barNum: 1,
     barSubtitle: 'Drummers Drumming',
-    special: '$5 Whiskey Shot & a Coors Light',
+    special: '$5 Bud Light',
     time: '1:00PM - 1:30PM',
-    googleName: 'three+kings',
-    checkedIn: false
+    googleName: 'three+lions',
+    checkedIn: false,
+    address: '2239 E Colfax'
   },
   action
 ) => {

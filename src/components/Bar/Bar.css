@@ -12,7 +12,7 @@
  
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
-  background: #fff;
+  background: #aaa;
   border-radius: 5px;
   height: 4px !important;
 }

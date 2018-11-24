@@ -16,10 +16,10 @@ class Home extends Component {
         <Grid item xs={8}>
           <img src={Logo} className="homeLogo" />
           <Grid container className="homeButtonContainer">
-            <Button aling="center" variant="outlined" color="secondary" onClick={() => this.getStartedClick()}>
+            <Button align="center" variant="outlined" color="secondary" onClick={() => this.getStartedClick()}>
               Sign Up
             </Button>
-            <Button aling="center" variant="outlined" color="secondary" onClick={() => this.getStartedClick()}>
+            <Button align="center" variant="outlined" color="secondary" onClick={() => this.getStartedClick()}>
               Login
             </Button>
           </Grid>

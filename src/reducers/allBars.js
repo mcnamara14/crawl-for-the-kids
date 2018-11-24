@@ -1,13 +1,14 @@
 const allBars = (
   state = [
     {
-      name: 'Three Kings',
+      name: 'Three Lions',
       barNum: 1,
       barSubtitle: 'Drummers Drumming',
       special: '$5 Whiskey Shot & a Coors Light',
       time: '1:00PM - 1:30PM',
-      googleName: 'three+kings',
-      checkedIn: false
+      googleName: 'three+lions',
+      checkedIn: false,
+      address: '2239 E Colfax'
     },
     {
       name: 'The Pub',
@@ -16,7 +17,8 @@ const allBars = (
       special: '$3 Jamo Shot',
       time: '1:30PM - 2:00PM',
       googleName: 'coors+field',
-      checkedIn: false
+      checkedIn: false,
+      address: '2239 E Colfax'
     }
   ],
   action

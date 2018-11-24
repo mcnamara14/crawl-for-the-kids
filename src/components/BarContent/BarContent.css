@@ -1,13 +1,9 @@
-p {
+* {
   font-family: 'Noto Sans TC', sans-serif;
 }
 
-h1 {
-  font-family: 'Varela Round', sans-serif;
-  margin-top: -5px;
-  margin-bottom: 5px;
-  font-size: 33px;
-  font-weight: bold;
+p {
+  font-family: 'Noto Sans TC', sans-serif;
 }
 
 h2 {
@@ -16,17 +12,31 @@ h2 {
   margin-top: -5px;
 }
 
-h4 {
-  color: #df8850;
+.barContentContainer h4 {
   font-weight: bold;
-  padding-top: 30px;
-  margin-bottom: 10px;
-  font-family: 'Noto Sans TC', sans-serif;
+  font-family: 'Varela Round', sans-serif;
+  color: #7a7a7a;
+  font-size: 1.3em;
+  margin: 0 10px 0 0;
 }
 
 h4 span {
   color: #000;
   text-transform: uppercase;
+}
+
+.barContentContainer h1 {
+  font-family: 'Varela Round', sans-serif;
+  color: #7a7a7a;
+  font-size: 1.5em;
+  margin: 0 0 0 5px;
+}
+
+.barContentContainer h3 {
+  color: #c0c0c0;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+  margin-bottom: 0;
 }
 
 .navigationIcon {
@@ -36,42 +46,44 @@ h4 span {
 
 .specials {
   padding-top: 0;
-  margin-top: 10px;
-  margin-bottom: -5px;
+  font-family: 'Noto Sans TC', sans-serif;
+  color: #666;
+}
+
+.specialTitle {
+  margin: 15px 0;
+}
+
+.specialTitle2 {
+  margin: 15px 0 0 0;
+}
+
+.specials p {
+  margin-left: 5px;
 }
 
 .barContentContainer {
   height: 100%;
-  margin-top: -34px;
-  text-align: center;
 }
 
 .barNum {
-  background: #1b95af;
-  width: 20px;
+  background: #fe403f;
   color: #fff;
   border-radius: 3px;
-  padding: 0px 3px 3px 3px;
+  padding: 0px 10px 3px;
   font-weight: bold;
-  font-size: 13px;
   font-family: 'Noto Sans TC', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-right: 5px;
-}
-
-.barSubtitle p {
-  color: #746868;
-  font-weight: bold;
-  font-family: 'Varela Round', sans-serif;
+  height: 20px;
 }
 
 .barSubtitle {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: -10px;
+  color: #aaa;
+  font-weight: bold;
+  font-family: 'Varela Round', sans-serif;
 }
 
 .goBack {
@@ -79,6 +91,14 @@ h4 span {
   font-size: 0.85em;
   margin-top: -6px;
   margin-bottom: 20px;
+}
+
+.hr {
+  height: 1px;
+  width: 100%;
+  background: #fe403f;
+  margin: 10px 0;
+  display: inline-block;
 }
 
 .goBack a {
@@ -128,4 +148,15 @@ h4 span {
   width: 50%;
   margin: 0 auto;
   font-weight: bold;
+}
+
+.barImageContainer {
+  height: 200px;
+  background-size: cover;
+}
+
+.address {
+  font-style: italic;
+  color: #aaa;
+  font-size: 0.8em;
 }

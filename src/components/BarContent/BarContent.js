@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import Button from '@material-ui/core/Button'
+import Grid from '@material-ui/core/Grid'
 import './BarContent.css'
 import 'firebase/database'
 import { connect } from 'react-redux'
@@ -9,6 +11,7 @@ import PostCheckin from './post-checkin.png'
 import * as firebase from 'firebase'
 import { updateCounter, checkIn } from '../../actions'
 import NavIcon from './nav-icon.png'
+import ThreeLionsImg from './three-lions.jpg'
 
 class BarContent extends Component {
   changeToNextBar = () => {
@@ -16,12 +19,7 @@ class BarContent extends Component {
     this.props.storeCurrentBar(this.props.allBars[currentBar])
   }
 
-  goBack = () => {
-    const currentBar = this.props.currentBar.barNum
-    this.props.storeCurrentBar(this.props.allBars[currentBar - 2])
-  }
-
-  checkIn = async (barNum) => {
+  checkIn = async barNum => {
     if (!this.props.currentBar.checkedIn) {
       await this.props.updateCounter()
       this.addCountToFirebase()
@@ -34,7 +32,7 @@ class BarContent extends Component {
     const firebaseRef = firebase.database().ref()
     const retrievedObject = localStorage.getItem('user')
     const parsedObject = JSON.parse(retrievedObject)
-    
+
     firebaseLocation = firebaseRef.child('users').child(parsedObject.userId)
     firebaseLocation.update({ count: this.props.counter, currentBar: this.props.currentBar.name })
   }
@@ -43,7 +41,7 @@ class BarContent extends Component {
     let nextBarGoogleName
     let nextStop
     let finalBar
-    const { name, barNum, barSubtitle, special, time, googleName, checkedIn } = this.props.currentBar
+    const { name, barNum, barSubtitle, special, time, googleName, checkedIn, image, address } = this.props.currentBar
 
     finalBar = this.props.allBars.length === barNum
 
@@ -55,40 +53,64 @@ class BarContent extends Component {
     }
 
     return (
-      <div className="barContentContainer">
-        <h4 className="stopTitle">{finalBar ? 'YOU MADE IT!' : 'CURRENT STOP:'}</h4>
-        <h1>{name}</h1>
-        <div className="barSubtitle">
-          <div className="barNum">{barNum}</div>
-          <p>{barSubtitle}</p>
-        </div>
-        <h2>{time}</h2>
-        <p className="goBack">
-          Here on accident?{' '}
-          <a href="#" onClick={() => this.goBack()}>
-            Want to go back?
-          </a>
-        </p>
-        <img src={checkedIn ? PostCheckin : PreCheckin} className="checkinButton" onClick={() => this.checkIn(barNum)} />
-        <h4 className="specials">SPECIALS:</h4>
-        <p>{special}</p>
-        {!finalBar ? (
-          <div>
-            <h4 className="nextStop">
-              NEXT STOP: <span>{nextStop}</span>
-            </h4>
-            <div class="nextBarButtons">
-              <button onClick={() => this.changeToNextBar()}>HEAD THERE</button>
-              <a
-                className="directionsButton"
-                href={`https://www.google.com/maps/dir/?api=1&origin=${googleName}+Denver+CO&destination=${nextBarGoogleName}+Denver+CO&travelmode=walking`}
-                target="_blank">
-                <img src={NavIcon} className="navigationIcon" />DIRECTIONS
-              </a>
-            </div>
-          </div>
-        ) : null}
-      </div>
+      <React.Fragment>
+        <Grid container className="barImageContainer" style={{ backgroundImage: `url(${ThreeLionsImg})` }} />
+        <Grid container className="barContentContainer" justify="center">
+          <Grid item xs={10} align="left">
+            <h3>{time}</h3>
+            <Grid container className="barTitle" alignItems="center">
+              <div className="barNum">{barNum}</div>
+              <h1>{name}</h1>
+            </Grid>
+            <Grid item className="address">
+              {address}
+            </Grid>
+            <Grid item className="barSubtitle">
+              {barSubtitle}
+            </Grid>
+            <Grid item className="hr" />
+            {/* <img
+              src={checkedIn ? PostCheckin : PreCheckin}
+              className="checkinButton"
+              onClick={() => this.checkIn(barNum)}
+            /> */}
+            <Grid container className="specials" alignItems="center">
+              <Grid item>
+                <Grid container alignContent="center" alignItems="center" className="specialTitle">
+                  <h4>Special:</h4>
+                  {special}
+                </Grid>
+                <Grid container alignContent="center" alignItems="center" className="specialTitle2">
+                  <h4>Challenge:</h4>
+                  {special}
+                </Grid>
+              </Grid>
+            </Grid>
+            <Grid item className="hr" />
+            {!finalBar ? (
+              <div>
+                <h4 className="nextStop">
+                  NEXT STOP: <span>{nextStop}</span>
+                </h4>
+                <div class="nextBarButtons">
+                  <Button variant="contained" color="secondary" onClick={() => this.changeToNextBar()}>
+                    HEAD THERE
+                  </Button>
+                  <Button
+                    className="directionsButton"
+                    href={`https://www.google.com/maps/dir/?api=1&origin=${googleName}+Denver+CO&destination=${nextBarGoogleName}+Denver+CO&travelmode=walking`}
+                    target="_blank"
+                    variant="contained"
+                    color="primary">
+                    <img src={NavIcon} className="navigationIcon" />
+                    DIRECTIONS
+                  </Button>
+                </div>
+              </div>
+            ) : null}
+          </Grid>
+        </Grid>
+      </React.Fragment>
     )
   }
 }
