@@ -6,8 +6,8 @@ import 'firebase/database'
 import { connect } from 'react-redux'
 import { storeCurrentBar } from '../../actions'
 import { withRouter } from 'react-router-dom'
-import PreCheckin from './pre-checkin.png'
-import PostCheckin from './post-checkin.png'
+import PreCheckin from '@material-ui/icons/CheckBoxOutlineBlank'
+import PostCheckin from '@material-ui/icons/CheckBox'
 import * as firebase from 'firebase'
 import { updateCounter, checkIn } from '../../actions'
 import NavIcon from './nav-icon.png'
@@ -83,29 +83,34 @@ class BarContent extends Component {
                 <Grid container alignContent="center" alignItems="center" className="specialTitle2">
                   <h4>Challenge:</h4>
                   {special}
+                  <div className="challenge">
+                    {checkedIn ? (
+                      <PostCheckin onClick={() => this.checkIn(barNum)} style={{ fill: '#fe403f' }} />
+                    ) : (
+                      <PreCheckin onClick={() => this.checkIn(barNum)} style={{ fill: '#fe403f' }} />
+                    )}{' '}
+                    challenge completed
+                  </div>
                 </Grid>
               </Grid>
             </Grid>
             <Grid item className="hr" />
             {!finalBar ? (
               <div>
-                <h4 className="nextStop">
-                  NEXT STOP: <span>{nextStop}</span>
-                </h4>
-                <div class="nextBarButtons">
-                  <Button variant="contained" color="secondary" onClick={() => this.changeToNextBar()}>
-                    HEAD THERE
-                  </Button>
+                <h3 className="nextStop">Next Bar</h3>
+                <h1>{nextStop}</h1>
+                <Grid container class="nextBarButtons" alignItems="center" direction="row">
                   <Button
                     className="directionsButton"
                     href={`https://www.google.com/maps/dir/?api=1&origin=${googleName}+Denver+CO&destination=${nextBarGoogleName}+Denver+CO&travelmode=walking`}
                     target="_blank"
-                    variant="contained"
-                    color="primary">
-                    <img src={NavIcon} className="navigationIcon" />
+                    variant="contained">
                     DIRECTIONS
                   </Button>
-                </div>
+                  <Button variant="contained" className="nextBarButton" onClick={() => this.changeToNextBar()}>
+                    HEAD THERE
+                  </Button>
+                </Grid>
               </div>
             ) : null}
           </Grid>

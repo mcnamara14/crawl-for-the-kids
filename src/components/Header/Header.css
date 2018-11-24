@@ -1,16 +1,23 @@
 .headerContainer {
+  display: block !important;
+  position: fixed;
   height: 60px;
-  display: block;
-  width: 100%;
+  background: white;
+  top: 0;
 }
 
 .backArrow {
   width: 35px !important;
   height: 55px !important;
   fill: #aaa !important;
-  margin-left: 20px;
+  left: 20px;
+  position: fixed;
+  top: 3px;
 }
 
 .lastBar {
   color: #AAA;
+  position: fixed;
+  top: 3px;
+  left: 50px;
 }

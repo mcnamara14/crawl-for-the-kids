@@ -66,6 +66,17 @@ h4 span {
   height: 100%;
 }
 
+.challenge {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  font-size: 0.8em;
+}
+
+.challenge svg {
+  margin-right: 8px;
+}
+
 .barNum {
   background: #fe403f;
   color: #fff;
@@ -106,12 +117,11 @@ h4 span {
 }
 
 .directionsButton {
-  color: #555;
+  color: #e4c517 !important;
   display: flex;
   height: 29px;
   background: #fff;
   margin-top: 15px;
-  border: 1px solid #f3833a;
   text-decoration: none;
   padding: 8px 14px;
   font-family: 'Noto Sans TC', sans-serif;
@@ -119,6 +129,18 @@ h4 span {
   font-size: 0.9em;
   align-items: center;
   letter-spacing: 1px;
+  background: none !important;
+  border: 1px solid #e4c517 !important;
+}
+
+.nextBarButton {
+  background: #e4c517 !important;
+  color: #fff !important;
+  margin-left: 10px !important;
+}
+
+.nextBarButtons {
+  margin-top: 15px;
 }
 
 .checkinButton {
@@ -129,30 +151,10 @@ h4 span {
   padding: 0;
 }
 
-.nextBarButtons {
-  display: flex;
-  align-items: center;
-  font-size: 1em;
-  flex-direction: column;
-  padding-bottom: 30px;
-}
-
-.nextBarButtons button {
-  padding: 14px 6px;
-  background: #f3833a;
-  margin-top: 20px;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
-  display: block;
-  width: 50%;
-  margin: 0 auto;
-  font-weight: bold;
-}
-
 .barImageContainer {
   height: 200px;
   background-size: cover;
+  margin-top: 60px;
 }
 
 .address {
