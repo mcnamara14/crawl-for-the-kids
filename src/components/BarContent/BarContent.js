@@ -14,6 +14,28 @@ import NavIcon from './nav-icon.png'
 import ThreeLionsImg from './three-lions.jpg'
 
 class BarContent extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      latitude: null,
+      longitude: null
+    }
+  }
+
+  componentDidMount() {
+    const location = window.navigator && window.navigator.geolocation
+
+    if (location) {
+      location.getCurrentPosition(position => {
+        this.setState({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude
+        })
+      })
+    }
+  }
+
   changeToNextBar = () => {
     const currentBar = this.props.currentBar.barNum
     this.props.storeCurrentBar(this.props.allBars[currentBar])
@@ -41,7 +63,18 @@ class BarContent extends Component {
     let nextBarGoogleName
     let nextStop
     let finalBar
-    const { name, barNum, barSubtitle, special, time, googleName, checkedIn, image, address, fact } = this.props.currentBar
+    const {
+      name,
+      barNum,
+      barSubtitle,
+      special,
+      time,
+      googleName,
+      checkedIn,
+      image,
+      address,
+      fact
+    } = this.props.currentBar
 
     finalBar = this.props.allBars.length === barNum
 
@@ -55,7 +88,10 @@ class BarContent extends Component {
     return (
       <React.Fragment>
         <Grid container className="barImageContainer" style={{ backgroundImage: `url(${ThreeLionsImg})` }}>
-          <div className="barFact">Albinism fact: <br />{fact}</div>
+          <div className="barFact">
+            Albinism fact: <br />
+            {fact}
+          </div>
         </Grid>
         <Grid container className="barContentContainer" justify="center">
           <Grid item xs={10} align="left">
@@ -104,7 +140,7 @@ class BarContent extends Component {
                 <Grid container class="nextBarButtons" alignItems="center" direction="row">
                   <Button
                     className="directionsButton"
-                    href={`https://www.google.com/maps/dir/?api=1&origin=${googleName}+Denver+CO&destination=${nextBarGoogleName}+Denver+CO&travelmode=walking`}
+                    href={`https://www.google.com/maps/dir/?api=1&origin=${this.state.latitude}, ${this.state.longitude}&destination=${nextBarGoogleName}+Denver+CO&travelmode=walking`}
                     target="_blank"
                     variant="contained">
                     DIRECTIONS
