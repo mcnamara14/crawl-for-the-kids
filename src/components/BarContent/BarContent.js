@@ -41,7 +41,7 @@ class BarContent extends Component {
     let nextBarGoogleName
     let nextStop
     let finalBar
-    const { name, barNum, barSubtitle, special, time, googleName, checkedIn, image, address } = this.props.currentBar
+    const { name, barNum, barSubtitle, special, time, googleName, checkedIn, image, address, fact } = this.props.currentBar
 
     finalBar = this.props.allBars.length === barNum
 
@@ -54,7 +54,9 @@ class BarContent extends Component {
 
     return (
       <React.Fragment>
-        <Grid container className="barImageContainer" style={{ backgroundImage: `url(${ThreeLionsImg})` }} />
+        <Grid container className="barImageContainer" style={{ backgroundImage: `url(${ThreeLionsImg})` }}>
+          <div className="barFact">Albinism fact: <br />{fact}</div>
+        </Grid>
         <Grid container className="barContentContainer" justify="center">
           <Grid item xs={10} align="left">
             <h3>{time}</h3>

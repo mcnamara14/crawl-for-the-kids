@@ -62,10 +62,6 @@ h4 span {
   margin-left: 5px;
 }
 
-.barContentContainer {
-  height: 100%;
-}
-
 .challenge {
   display: flex;
   align-items: center;
@@ -133,7 +129,6 @@ h4 span {
   background: none !important;
   z-index: 1;
   border: 1px solid #e4c517 !important;
-
 }
 
 .nextBarButton {
@@ -160,10 +155,25 @@ h4 span {
   height: 200px;
   background-size: cover;
   margin-top: 60px;
+  position: relative;
+  padding: 0 20px;
+  z-index: -1;
 }
 
 .address {
   font-style: italic;
   color: #aaa;
   font-size: 0.8em;
+}
+
+.barFact {
+  font-size: 1em;
+  height: 70px;
+  padding: 10px;
+  color: #fff;
+  border-radius: 3px;
+  position: absolute;
+  bottom: 0;
+  text-shadow: 1px 1px #333;
+  font-weight: bold;
 }

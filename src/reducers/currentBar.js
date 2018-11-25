@@ -7,7 +7,8 @@ const currentBar = (
     time: '1:00PM - 1:30PM',
     googleName: 'three+lions',
     checkedIn: false,
-    address: '2239 E Colfax'
+    address: '2239 E Colfax',
+    fact: 'June 13th is National Albinism Awareness Day'
   },
   action
 ) => {

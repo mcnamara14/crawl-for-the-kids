@@ -8,7 +8,8 @@ const allBars = (
       time: '1:00PM - 1:30PM',
       googleName: 'three+lions',
       checkedIn: false,
-      address: '2239 E Colfax'
+      address: '2239 E Colfax',
+      fact: 'June 13th is National Albinism Awareness Day'
     },
     {
       name: 'The Pub',
@@ -18,7 +19,8 @@ const allBars = (
       time: '1:30PM - 2:00PM',
       googleName: 'coors+field',
       checkedIn: false,
-      address: '2239 E Colfax'
+      address: '2239 E Colfax',
+      fact: 'Albinism is an inherited genetic condition'
     }
   ],
   action

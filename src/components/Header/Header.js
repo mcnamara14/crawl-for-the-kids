@@ -10,7 +10,7 @@ import './Header.css'
 class Header extends Component {
   goBack = () => {
     const currentBar = this.props.currentBar.barNum
-    this.props.storeCurrentBar(this.props.allBars[currentBar - 2])
+    if (this.props.allBars[currentBar - 2]) this.props.storeCurrentBar(this.props.allBars[currentBar - 2])
   }
 
   render() {
