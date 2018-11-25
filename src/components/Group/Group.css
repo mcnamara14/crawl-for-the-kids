@@ -1,32 +1,29 @@
-h1 {
-  font-family: 'Varela Round', sans-serif;
-  margin-top: 0;
-  font-size: 24px;
-}
-
-h3 {
-  font-family: 'Noto Sans TC', sans-serif;
-  color: #1b95af;
-  margin-bottom: 5px;
-}
-
 .groupTitle {
-  text-align: center;
   margin-top: 100px;
 }
 
+.groupTitle h3 {
+  color: #c0c0c0;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+  margin-bottom: 0;
+}
+
+.groupTitle h1 {
+  font-family: 'Varela Round', sans-serif;
+  color: #7a7a7a;
+  font-size: 1.5em;
+}
+
 .groupContainer {
-  width: 90%;
   margin: 0 auto;
 }
 
 .columnsHeader {
-  width: 82%;
-  margin: 0 auto;
   padding: 5px 15px;
   display: flex;
   color: #222;
-  padding: 15px 5px 15px;
+  padding: 15px 0 15px;
   justify-content: space-between;
 }
 
@@ -52,7 +49,6 @@ h3 {
 }
 
 .crawler {
-  padding: 0px 15px;
   border-bottom: 1px solid #ccc;
   margin: 10px 0 0px 0;
   display: flex;
@@ -68,7 +64,8 @@ h3 {
   font-weight: bold;
 }
 
-.crawlerName, .crawlerBar {
+.crawlerName,
+.crawlerBar {
   width: 45%;
 }
 

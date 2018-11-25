@@ -4,6 +4,7 @@
   height: 60px;
   background: white;
   top: 0;
+  border-bottom: 1px solid #ddd;
 }
 
 .backArrow {

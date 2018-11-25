@@ -19,7 +19,7 @@ class Header extends Component {
         <Menu right />
         <Grid item className="lastBar" align="center">
           <Grid container alignItems="center">
-            <ArrowIcon onClick={() => this.goBack()} className="backArrow" /><p className="lastBar">Last bar</p>
+            <ArrowIcon onClick={() => this.goBack()} className="backArrow" />
           </Grid>
         </Grid>
       </Grid>

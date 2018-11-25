@@ -32,23 +32,36 @@ class Login extends Component {
 
   emailSubmitHandler = async event => {
     const { nameInput, password } = this.state
-    const email = nameInput + '@gmail.com'
+    const nameConcat = nameInput.replace(/\s/g, '');
+    const email = nameConcat + '@gmail.com'
 
-    const result = await authorization.emailPasswordSignup(email, password)
-    const { uid } = result.user 
+    try {
+      const result = await authorization.emailPasswordSignup(email, password)
+      const { uid } = result.user
 
-    this.setState({ userId: uid })
-    this.storeUserRedirect(uid)
+      this.setState({ userId: uid })
+      this.storeUserRedirect(uid)
+    } catch (error) {
+      if (error.code === 'auth/email-already-in-use') {
+        const result = await authorization.emailPasswordSignin(email, password)
+
+        const { uid } = result.user
+
+        this.setState({ userId: uid })
+        this.storeUserRedirect(uid)
+      }
+    }
   }
-  storeUserRedirect = (uid) => {
+
+  storeUserRedirect = uid => {
     const { userId, nameInput } = this.state
-    const objectToStore = { userId: uid, name: nameInput };
-    const stringifiedObject = JSON.stringify(objectToStore);
-    localStorage.setItem('user', stringifiedObject);
+    const objectToStore = { userId: uid, name: nameInput }
+    const stringifiedObject = JSON.stringify(objectToStore)
+    localStorage.setItem('user', stringifiedObject)
 
     let firebaseLocation
     const firebaseRef = firebase.database().ref()
-    
+
     firebaseLocation = firebaseRef.child('users').child(userId)
     firebaseLocation.update({ name: nameInput })
 
@@ -64,20 +77,31 @@ class Login extends Component {
   render() {
     return (
       <Grid container className="homeContainer" justify="center">
-      <Grid item xs={8}>
-        <img src={Logo} className="homeLogo" />
-        <Grid container className="homeButtonContainer">
-        <form className="emailSignup" onSubmit={this.emailSubmitHandler}>
-            <input name="nameInput" value={this.state.nameInput} onChange={this.onChangeHandler} placeholder="Name" />
-            {this.props.passwordError ? (
-              <p className="passwordErrorPopup errorPopup">Wrong password, try again.</p>
-            ) : null}
-            <input name="password" value={this.state.password} onChange={this.onChangeHandler} placeholder="Password" />
-            <Button variant="contained" color="primary" className="signinButton" onClick={() => this.emailSubmitHandler()}>Sign In</Button>
-          </form>
+        <Grid item xs={8}>
+          <img src={Logo} className="homeLogo" />
+          <Grid container className="homeButtonContainer">
+            <form className="emailSignup" onSubmit={this.emailSubmitHandler}>
+              <input name="nameInput" value={this.state.nameInput} onChange={this.onChangeHandler} placeholder="Name" />
+              {this.props.passwordError ? (
+                <p className="passwordErrorPopup errorPopup">Wrong password, try again.</p>
+              ) : null}
+              <input
+                name="password"
+                value={this.state.password}
+                onChange={this.onChangeHandler}
+                placeholder="Password"
+              />
+              <Button
+                variant="contained"
+                color="primary"
+                className="signinButton"
+                onClick={() => this.emailSubmitHandler()}>
+                Sign In
+              </Button>
+            </form>
+          </Grid>
         </Grid>
       </Grid>
-    </Grid>
     )
   }
 }

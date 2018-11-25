@@ -24,6 +24,7 @@
   height: 25px;
   right: 26px;
   top: 17px;
+  z-index: 1;
 }
  
 /* Color/shape of close button cross */
@@ -33,7 +34,7 @@
  
 /* General sidebar styles */
 .bm-menu {
-  background: #373a47;
+  background: #fe403f;
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
 }

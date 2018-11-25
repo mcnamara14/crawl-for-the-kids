@@ -26,5 +26,7 @@
 .signinButton {
   background: #444;
   color: #FFF;
+  min-height: 50px;
   border: none;
+  z-index: 1;
 }

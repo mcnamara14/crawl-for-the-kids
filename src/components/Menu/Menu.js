@@ -17,6 +17,9 @@ class MobileMenu extends Component {
         <a id="contact" className="menu-item" onClick={() => this.updatePage('/bar')}>
           Current Bar ›
         </a>
+        <a id="bars" className="menu-item" onClick={() => this.updatePage('/bars')}>
+          Bars ›
+        </a>
       </Menu>
     )
   }

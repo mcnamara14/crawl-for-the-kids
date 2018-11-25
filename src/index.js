@@ -8,6 +8,7 @@ import rootReducer from '../src/reducers/index.js'
 import Home from './components/Home/Home'
 import Login from './components/Login/Login'
 import Bar from './components/Bar/Bar'
+import Bars from './components/Bars/Bars'
 import Group from './components/Group/Group'
 import Switch from 'react-router-dom/Switch'
 import { BrowserRouter, Route } from 'react-router-dom'
@@ -25,6 +26,7 @@ render(
           <Route exact path="/login" component={Login} />
           <Route exact path="/bar" component={Bar} />
           <Route exact path="/group" component={Group} />
+          <Route exact path="/bars" component={Bars} />
         </Switch>
       </BrowserRouter>
     </MuiThemeProvider>

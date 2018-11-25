@@ -121,6 +121,7 @@ h4 span {
   display: flex;
   height: 29px;
   background: #fff;
+  box-shadow: none !important;
   margin-top: 15px;
   text-decoration: none;
   padding: 8px 14px;
@@ -130,13 +131,17 @@ h4 span {
   align-items: center;
   letter-spacing: 1px;
   background: none !important;
+  z-index: 1;
   border: 1px solid #e4c517 !important;
+
 }
 
 .nextBarButton {
   background: #e4c517 !important;
   color: #fff !important;
   margin-left: 10px !important;
+  z-index: 1;
+  box-shadow: none !important;
 }
 
 .nextBarButtons {
