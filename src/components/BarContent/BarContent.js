@@ -73,7 +73,8 @@ class BarContent extends Component {
       checkedIn,
       image,
       address,
-      fact
+      fact,
+      challenge
     } = this.props.currentBar
 
     finalBar = this.props.allBars.length === barNum
@@ -120,7 +121,7 @@ class BarContent extends Component {
                 </Grid>
                 <Grid container alignContent="center" alignItems="center" className="specialTitle2">
                   <h4>Challenge:</h4>
-                  {special}
+                  {challenge}
                   <div className="challenge">
                     {checkedIn ? (
                       <PostCheckin onClick={() => this.checkIn(barNum)} style={{ fill: '#fe403f' }} />
