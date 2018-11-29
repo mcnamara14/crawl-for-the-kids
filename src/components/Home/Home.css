@@ -25,9 +25,10 @@ h3 {
 }
 
 .homeLogo {
-  width: 100%;
+  width: 90%;
   height: auto;
-  margin: 60px 0;
+  margin: 60px auto 40px auto;
+  display: inherit;
 }
 
 .signupButton {
@@ -41,6 +42,8 @@ h3 {
 
 .homeContainer button {
   font-size: 16px;
+  padding: 6px 0;
+  margin-top: 10px;
 }
 
 .homeButtonContainer {

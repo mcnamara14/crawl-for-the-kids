@@ -40,7 +40,7 @@ class Group extends Component {
 
     return (
       <div>
-        <Header />
+        <Header page="leaderboard"/>
         <Grid container className="groupTitle" justify="center">
           <Grid item xs={10}>
             <h3>Crawler</h3>
