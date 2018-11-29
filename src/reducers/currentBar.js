@@ -1,6 +1,7 @@
 const currentBar = (
   state = {
     name: 'Three Lions',
+    numTitle: 12,
     barNum: 1,
     barSubtitle: 'Drummers Drumming',
     special: '$2.5 Coors Banquet Cans - $3 Montucky 16oz Cans - $1 Off 16oz Drafts & Wells',
@@ -9,7 +10,8 @@ const currentBar = (
     googleName: 'three+lions',
     checkedIn: false,
     address: '2239 E Colfax',
-    fact: 'June 13th is National Albinism Awareness Day'
+    fact: 'June 13th is National Albinism Awareness Day',
+    image: 'ThreeLionsImg'
   },
   action
 ) => {

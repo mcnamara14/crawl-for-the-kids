@@ -44,10 +44,11 @@ h4 span {
   margin-right: 5px;
 }
 
-.specials {
+.specials, .specialTitle2 {
   padding-top: 0;
   font-family: 'Noto Sans TC', sans-serif;
   color: #666;
+  font-size: 0.9em;
 }
 
 .specialTitle {
@@ -67,7 +68,7 @@ h4 span {
   display: flex;
   align-items: center;
   margin-top: 10px;
-  font-size: 0.8em;
+  font-size: 1em;
 }
 
 .challenge svg {
@@ -142,6 +143,7 @@ h4 span {
 
 .nextBarButtons {
   margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .checkinButton {
@@ -169,7 +171,7 @@ h4 span {
 
 .barFact {
   font-size: 1em;
-  height: 70px;
+  height: 50px;
   padding: 10px;
   color: #fff;
   border-radius: 3px;

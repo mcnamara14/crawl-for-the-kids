@@ -21,13 +21,14 @@
 }
 
 .bar .hr {
-  margin: 15px 0;
+  margin: 25px 0;
 }
 
 .barAddress {
   color: #777;
   font-style: italic;
   font-size: 0.8em;
+  margin-bottom: 10px !important;
 }
 
 .barsContainer h1 {
@@ -39,12 +40,14 @@
 
 .barTime {
   color: #777;
+  margin-top: 5px;
 }
 
 .barSpecial {
   color: #555;
   font-size: 0.8em;
   margin-top: 5px !important;
+  margin-bottom: 10px !important;
 }
 
 .barsContainer Button {

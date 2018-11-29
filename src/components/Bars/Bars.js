@@ -26,20 +26,23 @@ class Bars extends Component {
               {this.props.allBars.map(bar => {
                 return (
                   <Grid container className="bar" justify="space-between">
-                    <Grid item xs={6}>
+                    <Grid item xs={12}>
                       <Grid container className="barTitle" alignItems="center">
-                        <div className="barNum">{bar.barNum}</div>
+                        <div className="barNum">{bar.numTitle}</div>
                         <h1>{bar.name}</h1>
                       </Grid>
                     </Grid>
-                    <Grid item xs={6} align="right">
+                    <Grid item xs={12}>
                       <div className="barTime">{bar.time}</div>
                     </Grid>
                     <Grid container>
                       <Grid item xs={12}>
                         <p className="barAddress">{bar.address}</p>
                         <p className="barSpecial">
-                          <b>Special:</b> {bar.special}
+                          <p><b>Special:</b> {bar.special}</p>
+                        </p>
+                        <p className="barSpecial">
+                          <p><b>Challenge:</b> {bar.challenge}</p>
                         </p>
                         <Button
                           align="center"

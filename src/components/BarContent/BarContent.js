@@ -12,6 +12,7 @@ import * as firebase from 'firebase'
 import { updateCounter, checkIn } from '../../actions'
 import NavIcon from './nav-icon.png'
 import ThreeLionsImg from './three-lions.jpg'
+import SquireLoungeImg from './squire-lounge.jpg'
 
 class BarContent extends Component {
   constructor(props) {
@@ -19,12 +20,18 @@ class BarContent extends Component {
 
     this.state = {
       latitude: null,
-      longitude: null
+      longitude: null,
+      challenges: []
     }
   }
 
   componentDidMount() {
+    const challenges = []
     const location = window.navigator && window.navigator.geolocation
+    const firebaseRef = firebase.database().ref()
+    const retrievedObject = localStorage.getItem('user')
+    const parsedObject = JSON.parse(retrievedObject)
+    const users = firebaseRef.child('users').child(parsedObject.userId)
 
     if (location) {
       location.getCurrentPosition(position => {
@@ -34,6 +41,17 @@ class BarContent extends Component {
         })
       })
     }
+
+    users
+      .once('value', snap => {
+        if (snap.val().challenges) {
+          const keys = Object.keys(snap.val().challenges)
+          keys.forEach(key => {
+            challenges.push(key)
+          })
+        }
+      })
+      .then(() => this.setState({ challenges }))
   }
 
   changeToNextBar = () => {
@@ -50,32 +68,51 @@ class BarContent extends Component {
   }
 
   addCountToFirebase = () => {
+    const { name } = this.props.currentBar
     let firebaseLocation
     const firebaseRef = firebase.database().ref()
     const retrievedObject = localStorage.getItem('user')
     const parsedObject = JSON.parse(retrievedObject)
 
-    firebaseLocation = firebaseRef.child('users').child(parsedObject.userId)
-    firebaseLocation.update({ count: this.props.counter, currentBar: this.props.currentBar.name })
+    firebaseLocation = firebaseRef
+      .child('users')
+      .child(parsedObject.userId)
+      .child('challenges')
+      .child(name)
+    firebaseLocation.update({ count: 1 })
+
+    if (!this.state.challenges.includes(name)) this.setState({ challenges: [...this.state.challenges, name] })
   }
 
   render() {
     let nextBarGoogleName
     let nextStop
     let finalBar
+    let checkedIn
+    let backgroundImg
+
     const {
       name,
       barNum,
       barSubtitle,
       special,
       time,
+      numTitle,
       googleName,
-      checkedIn,
       image,
       address,
       fact,
       challenge
     } = this.props.currentBar
+ 
+    switch (image) {
+      case 'ThreeLionsImg':
+        backgroundImg = ThreeLionsImg
+        break;
+      case 'SquireLoungeImg':
+        backgroundImg = SquireLoungeImg
+        break;
+    }
 
     finalBar = this.props.allBars.length === barNum
 
@@ -86,19 +123,18 @@ class BarContent extends Component {
       nextBarGoogleName = this.props.allBars[barNum - 1].googleName
     }
 
+    this.state.challenges.includes(name) ? (checkedIn = true) : (checkedIn = false)
+
     return (
       <React.Fragment>
-        <Grid container className="barImageContainer" style={{ backgroundImage: `url(${ThreeLionsImg})` }}>
-          <div className="barFact">
-            Albinism fact: <br />
-            {fact}
-          </div>
+        <Grid container className="barImageContainer" style={{ backgroundImage: `url(${backgroundImg})` }}>
+          <div className="barFact">{fact}</div>
         </Grid>
         <Grid container className="barContentContainer" justify="center">
           <Grid item xs={10} align="left">
             <h3>{time}</h3>
             <Grid container className="barTitle" alignItems="center">
-              <div className="barNum">{barNum}</div>
+              <div className="barNum">{numTitle}</div>
               <h1>{name}</h1>
             </Grid>
             <Grid item className="address">
@@ -108,11 +144,6 @@ class BarContent extends Component {
               {barSubtitle}
             </Grid>
             <Grid item className="hr" />
-            {/* <img
-              src={checkedIn ? PostCheckin : PreCheckin}
-              className="checkinButton"
-              onClick={() => this.checkIn(barNum)}
-            /> */}
             <Grid container className="specials" alignItems="center">
               <Grid item>
                 <Grid container alignContent="center" alignItems="center" className="specialTitle">
@@ -141,7 +172,9 @@ class BarContent extends Component {
                 <Grid container class="nextBarButtons" alignItems="center" direction="row">
                   <Button
                     className="directionsButton"
-                    href={`https://www.google.com/maps/dir/?api=1&origin=${this.state.latitude}, ${this.state.longitude}&destination=${nextBarGoogleName}+Denver+CO&travelmode=walking`}
+                    href={`https://www.google.com/maps/dir/?api=1&origin=${this.state.latitude}, ${
+                      this.state.longitude
+                    }&destination=${nextBarGoogleName}+Denver+CO&travelmode=walking`}
                     target="_blank"
                     variant="contained">
                     DIRECTIONS

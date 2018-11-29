@@ -104,7 +104,8 @@ let styles = {
       root: {
         fontFamily: 'Open Sans',
         fontWeight: 700,
-        borderRadius: 2
+        borderRadius: 2,
+        position: 'static'
       },
       textPrimary: {
         color: 'white'

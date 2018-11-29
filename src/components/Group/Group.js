@@ -16,13 +16,17 @@ class Group extends Component {
 
   componentDidMount() {
     const crawlers = []
+    let count
     const firebaseRef = firebase.database().ref()
     const users = firebaseRef.child('users')
 
     users
       .once('value', snap => {
         snap.forEach(child => {
-          crawlers.push({ name: child.val().name, currentBar: child.val().currentBar, count: child.val().count })
+          if (child.val().challenges) {
+            count = Object.keys(child.val().challenges).length
+            crawlers.push({ name: child.val().name, currentBar: child.val().currentBar, count })
+          }
         })
       })
       .then(() => this.setState({ crawlers }))
@@ -44,7 +48,6 @@ class Group extends Component {
 
             <div className="columnsHeader">
               <p className="columnName">Name</p>
-              <p className="columnBar">Bar</p>
               <p className="columnCount">Challenges</p>
             </div>
             <div className="groupContainer">
@@ -52,7 +55,6 @@ class Group extends Component {
                 return (
                   <div className="crawler">
                     <p className="crawlerName">{crawler.name} </p>
-                    <p className="crawlerBar">{crawler.currentBar} </p>
                     <p className="crawlerCount">{crawler.count} </p>
                   </div>
                 )
