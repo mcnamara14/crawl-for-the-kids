@@ -51,6 +51,8 @@ class Login extends Component {
         this.storeUserRedirect(uid)
       }
     }
+
+    this.props.storeCurrentBar(this.props.allBars[0])
   }
 
   storeUserRedirect = uid => {
@@ -119,12 +121,15 @@ const mapDispatchToProps = dispatch => {
     },
     storeUserName: userName => {
       dispatch(storeUserName(userName))
+    },
+    storeCurrentBar: bar => {
+      dispatch(storeCurrentBar(bar))
     }
   }
 }
 
 const mapStateToProps = state => {
-  return { currentBar: state.currentBar }
+  return { currentBar: state.currentBar, allBars: state.allBars }
 }
 
 export default withRouter(
