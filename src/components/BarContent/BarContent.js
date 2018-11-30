@@ -13,6 +13,16 @@ import { updateCounter, checkIn } from '../../actions'
 import NavIcon from './nav-icon.png'
 import ThreeLionsImg from './three-lions.jpg'
 import SquireLoungeImg from './squire-lounge.jpg'
+import PetesSatireLoungeImg from './petes-satire-lounge.jpg'
+import ProhibitionImg from './prohibition.jpg'
+import SanchosImg from './sanchos.jpg'
+import SatelliteBarImg from './satellite-bar.jpg'
+import TooeysImg from './tooeys.jpg'
+import IrishSnugImg from './irish-snug.jpg'
+import KingasLoungeImg from './kingas-lounge.jpg'
+import LondonPubImg from './london-pub.jpg'
+import NobHillImg from './nob-hill.jpg'
+import OneUpImg from './one-up.jpg'
 
 class BarContent extends Component {
   constructor(props) {
@@ -104,14 +114,44 @@ class BarContent extends Component {
       fact,
       challenge
     } = this.props.currentBar
- 
+
     switch (image) {
       case 'ThreeLionsImg':
         backgroundImg = ThreeLionsImg
-        break;
+        break
       case 'SquireLoungeImg':
         backgroundImg = SquireLoungeImg
-        break;
+        break
+      case 'IrishSnugImg':
+        backgroundImg = IrishSnugImg
+        break
+      case 'KingasLoungeImg':
+        backgroundImg = KingasLoungeImg
+        break
+      case 'LondonPubImg':
+        backgroundImg = LondonPubImg
+        break
+      case 'NobHillImg':
+        backgroundImg = NobHillImg
+        break
+      case 'OneUpImg':
+        backgroundImg = OneUpImg
+        break
+      case 'PetesSatireLoungeImg':
+        backgroundImg = PetesSatireLoungeImg
+        break
+      case 'ProhibitionImg':
+        backgroundImg = ProhibitionImg
+        break
+      case 'SanchosImg':
+        backgroundImg = SanchosImg
+        break
+      case 'SatelliteBarImg':
+        backgroundImg = SatelliteBarImg
+        break
+      case 'TooeysImg':
+        backgroundImg = TooeysImg
+        break
     }
 
     finalBar = this.props.allBars.length === barNum

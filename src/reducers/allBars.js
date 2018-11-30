@@ -5,9 +5,9 @@ const allBars = (
       numTitle: 12,
       barNum: 1,
       barSubtitle: 'Drummers Drumming',
-      special: '$2.5 Coors Banquet Cans - $3 Montucky 16oz Cans - $1 Off 16oz Drafts & Wells',
+      special: '$2.50 (16oz) or $4.00 (20oz) Coors Lights - $4 (16oz) Carlsburg - $1 off Drafts & Wells',
       challenge: 'Montucky 16oz can',
-      time: '12:30PM - 4:00PM',
+      time: '3:00PM - 4:00PM',
       googleName: 'three+lions',
       checkedIn: false,
       address: '2239 E Colfax',
@@ -26,7 +26,7 @@ const allBars = (
       checkedIn: false,
       address: '1920 E Colfax',
       fact: 'Albinism is an inherited genetic condition',
-      image: 'SquireLoungeImg'
+      image: 'PetesSatireLoungeImg'
     },
     {
       name: 'Squire Lounge',
@@ -54,7 +54,7 @@ const allBars = (
       checkedIn: false,
       address: '1501 E Colfax',
       fact: 'People with Albinism typically have low vision',
-      image: 'SquireLoungeImg'
+      image: 'LondonPubImg'
     },
     {
       name: 'Irish Snug',
@@ -68,7 +68,7 @@ const allBars = (
       checkedIn: false,
       address: '1201 E Colfax',
       fact: 'Albinism does not affect intellectual capabilities',
-      image: 'SquireLoungeImg'
+      image: 'IrishSnugImg'
     },
     {
       name: "Kinga's Lounge",
@@ -82,7 +82,7 @@ const allBars = (
       checkedIn: false,
       address: '1509 N Marion St',
       fact: '1 in 100 people carry the Albinism gene',
-      image: 'SquireLoungeImg'
+      image: 'KingasLoungeImg'
     },
     {
       name: "Tooey's",
@@ -96,7 +96,7 @@ const allBars = (
       checkedIn: false,
       address: '1521 N Marion St',
       fact: '1 in 20,000 are born with Albinism',
-      image: 'SquireLoungeImg'
+      image: 'TooeysImg'
     },
     {
       name: "Sanchos",
@@ -110,7 +110,7 @@ const allBars = (
       checkedIn: false,
       address: '741 E Colfax',
       fact: 'Albinism is most common in African Americans, Japanese, & Caucasians',
-      image: 'SquireLoungeImg'
+      image: 'SanchosImg'
     },
     {
       name: "1 UP",
@@ -124,7 +124,7 @@ const allBars = (
       checkedIn: false,
       address: '717 E Colfax',
       fact: 'une 13th is National Albinism Awareness Day',
-      image: 'SquireLoungeImg'
+      image: 'OneUpImg'
     },
     {
       name: "Prohibition",
@@ -138,7 +138,7 @@ const allBars = (
       checkedIn: false,
       address: '504 E Colfax',
       fact: 'Albinism is an inherited genetic condition',
-      image: 'SquireLoungeImg'
+      image: 'ProhibitionImg'
     },
     {
       name: "Nob Hill Inn",
@@ -152,7 +152,7 @@ const allBars = (
       checkedIn: false,
       address: '420 E Colfax',
       fact: 'Albinism causes people to have little to no pigment in their skin, hair, & eyes',
-      image: 'SquireLoungeImg'
+      image: 'NobHillImg'
     },
     {
       name: "Satellite Bar",
@@ -166,7 +166,7 @@ const allBars = (
       checkedIn: false,
       address: '308 E Colfax',
       fact: 'People with Albinism typically have low vision',
-      image: 'SquireLoungeImg'
+      image: 'SatelliteBarImg'
     }
   ],
   action

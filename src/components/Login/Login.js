@@ -18,7 +18,9 @@ class Login extends Component {
       emailInput: '',
       nameInput: '',
       userId: '',
-      password: ''
+      password: '',
+      passwordError: false,
+      weakPassword: false
     }
   }
 
@@ -32,7 +34,7 @@ class Login extends Component {
 
   emailSubmitHandler = async event => {
     const { nameInput, password } = this.state
-    const nameConcat = nameInput.replace(/\s/g, '');
+    const nameConcat = nameInput.replace(/\s/g, '')
     const email = nameConcat + '@gmail.com'
 
     try {
@@ -43,12 +45,20 @@ class Login extends Component {
       this.storeUserRedirect(uid)
     } catch (error) {
       if (error.code === 'auth/email-already-in-use') {
-        const result = await authorization.emailPasswordSignin(email, password)
+        try {
+          const result = await authorization.emailPasswordSignin(email, password)
 
-        const { uid } = result.user
+          const { uid } = result.user
 
-        this.setState({ userId: uid })
-        this.storeUserRedirect(uid)
+          this.setState({ userId: uid })
+          this.storeUserRedirect(uid)
+        } catch (error) {
+          this.setState({ passwordError: true })
+          setTimeout(() => this.setState({ passwordError: false }), 3000)
+        }
+      } else if (error.code === 'auth/weak-password') {
+        this.setState({ weakPassword: true })
+        setTimeout(() => this.setState({ weakPassword: false }), 3000)
       }
     }
 
@@ -84,9 +94,8 @@ class Login extends Component {
           <Grid container className="homeButtonContainer">
             <form className="emailSignup" onSubmit={this.emailSubmitHandler}>
               <input name="nameInput" value={this.state.nameInput} onChange={this.onChangeHandler} placeholder="Name" />
-              {this.props.passwordError ? (
-                <p className="passwordErrorPopup errorPopup">Wrong password, try again.</p>
-              ) : null}
+              {this.state.passwordError ? <p className="errorPopup"><b>Wrong password, try again.</b></p> : null}
+              {this.state.weakPassword ? <p className="errorPopup"><b>Weak password.<br /> Enter a longer password.</b></p> : null}
               <input
                 name="password"
                 value={this.state.password}

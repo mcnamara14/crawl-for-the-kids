@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Grid from '@material-ui/core/Grid'
-import {withRouter} from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import ArrowIcon from '@material-ui/icons/ArrowBackIos'
 import { connect } from 'react-redux'
 import { storeCurrentBar } from '../../actions'
